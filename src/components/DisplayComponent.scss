@@ -1,0 +1,78 @@
+// Страница вывода
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+$background-color: #f9f9f9;
+$primary-color: #5b8bf7;
+$secondary-color: #ff7675;
+$text-color: #333;
+$label-color: #555;
+$value-color: #777;
+$border-radius: 10px;
+$box-shadow-color: rgba(0, 0, 0, 0.15);
+$transition-duration: 0.3s;
+
+.container {
+  padding: 24px;
+  margin: 30px auto;
+  border-radius: $border-radius;
+  background: linear-gradient(145deg, lighten($primary-color, 5%), $secondary-color);
+  box-shadow: 0 8px 15px $box-shadow-color;
+  color: $text-color;
+  font-family: 'Roboto', sans-serif;
+  max-width: 600px;
+
+  .item {
+    position: relative;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: $background-color;
+    border-radius: $border-radius;
+    box-shadow: 0 2px 5px $box-shadow-color;
+    transition: all $transition-duration ease;
+
+    &:hover {
+      background-color: darken($background-color, 5%);
+      box-shadow: 0 4px 10px $box-shadow-color;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 5px;
+      color: $label-color;
+      font-weight: 500;
+    }
+
+    .value {
+      color: $value-color;
+      font-size: 1.1rem;
+    }
+  }
+
+  // Анимация для градиента фона
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  &:hover {
+    animation: gradientAnimation 8s ease infinite;
+    background-size: 200% 200%;
+  }
+}
+
+// Медиа запросы для адаптивности
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    .item {
+      padding: 10px;
+    }
+  }
+}
